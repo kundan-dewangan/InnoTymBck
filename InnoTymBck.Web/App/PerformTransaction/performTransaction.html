@@ -1,0 +1,34 @@
+﻿
+ <div class="jumbotron jumbotron-fluid mb-0" data-ng-controller="performTransactionController" data-ng-init="performTransList()">
+    <div class="container d-flex justify-content-center p-4">
+       
+        <div class="col-lg-6 bg-light rounded p-4">
+            <form name="performtrans" role="form" novalidate>
+                <h1 class="text-center text-primary">Send Money</h1>
+                <hr />
+                <div class="form-group">
+                    <label>Recipient Name</label>
+                    <div ng-class="{'has-error':performtrans.recipientname.$invalid && performtrans.recipientname.$dirty}">
+                        <select class="form-control" name="recipientname" ng-model="money.allData" required>
+                            <option value="" disabled selected>Select Recipient Name</option>
+                            <option ng-repeat="User in Users" data-ng-value="{{User}}" data-ng-show="listOfUser.Id != User.Id">{{User.UName}}</option>
+                        </select>
+                        <!--<select class="form-control validate" data-ng-model="money.name" ng-options="item for item in User"></select>-->
+                    </div>
+                    <span class="help-block text-danger" ng-if="performtrans.recipientname.$error.required && performtrans.recipientname.$touched ||performtrans.recipientname.$untouched">*Select recipient name is required</span>
+                </div>
+                <div class="form-group">
+                    <label>Amount</label>
+                    <div ng-class="{'has-error':performtrans.amount.$invalid && performtrans.amount.$dirty}">
+                        <input type="text" class="form-control" ng-pattern="/^[0-9]{1,7}$/" name="amount" ng-model="money.amount" placeholder="Enter Amount" required/>
+                    </div>
+                    <span class="help-block text-danger" ng-if="performtrans.amount.$error.required && performtrans.amount.$dirty">*Amount is required</span>
+                    <span class="help-block text-danger" ng-if="performtrans.amount.$error.pattern">The value is not a valid integer</span>
+                </div>
+                <button type="button" class="btn btn-primary" ng-click="send(money)" ng-disabled="performtrans.$pristine || performtrans.$dirty && performtrans.$invalid">Pay</button>
+                <div class="alert alert-danger mt-3 text-center h6" role="alert" ng-show="errordata">{{errordata}}</div>
+                <div class="alert alert-success mt-3 text-center h6" role="alert" ng-show="errordatasuccess">{{errordatasuccess}}</div>
+            </form>
+        </div>
+          </div>
+</div>

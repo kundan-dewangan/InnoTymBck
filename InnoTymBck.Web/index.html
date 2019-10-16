@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html ng-app="InnoTymApp">
+<head>
+    <title>InnoTym</title>
+    <meta charset="utf-8" />
+    <link href="Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/CSS/style.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    <div ng-include="'App/Header/header.html'"></div>
+    <div ng-view=""></div>
+    <div ng-include="'App/Footer/footer.html'"></div>
+
+    <!--*****************************************Basic Inclusions********************************************-->
+
+    <script src="scripts/jquery-3.0.0.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/angular.min.js"></script>
+
+    <script src="scripts/angular-local-storage.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+
+    <script src="App/app.js"></script>
+    <!--<script src="assets/JS/operation.js"></script>-->
+    <!--*****************************************Controllers********************************************-->
+    <script src="App/Header/headerController.js"></script>
+    <script src="App/Login/loginController.js"></script>
+    <script src="App/Footer/footerController.js"></script>
+    <script src="App/AddMoney/addMoneyController.js"></script>
+    <script src="App/PerformTransaction/performTransactionController.js"></script>
+    <script src="App/TransactionHistory/transactionHistoryController.js"></script>
+    <script src="App/UserList/userListController.js"></script>
+    <!--*****************************************Services********************************************-->
+    <script src="App/TransactionHistory/transactionService.js"></script>
+    <script src="App/UserList/userService.js"></script>
+</body>
+</html>

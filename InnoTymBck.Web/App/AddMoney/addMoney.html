@@ -1,0 +1,28 @@
+﻿
+<div class="container p-4" data-ng-controller="addMoneyController" data-ng-init="addMoney()">
+    <div class="row justify-content-lg-center">
+
+        <div class="card w-50 text-center">
+            <form name="addmoney" role="form" novalidate>
+                <div class="card-header h1">
+                    Add Money
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Add cash to your account</h5>
+                    <div ng-class="{'has-error':addmoney.addcash.$invalid && addmoney.addcash.$dirty || addmoney.addcash.$valid}">
+                        <input type="text" class="form-control" name="addcash" ng-pattern="/^[0-9]{1,7}$/" placeholder="Enter Amount" data-ng-model="moneyDetail.rs" required/>
+                    </div>
+                    <button class="btn btn-primary m-2" data-ng-click="add(moneyDetail)" ng-disabled="addmoney.$pristine || addmoney.$dirty && addmoney.$invalid">Add</button>
+                    <span class="help-block text-danger" ng-if="addmoney.addcash.$error.required && addmoney.addcash.$dirty">*Input is required</span>
+                    <span class="help-block text-danger" ng-if="addmoney.addcash.$error.pattern">The value is not a valid integer</span>
+                </div>
+                
+                <div class="card-footer text-muted" data-ng-show="msg">
+                    <!--<a href="#!home">Go Home</a>-->
+                    <div class="alert alert-success mt-3 h6" role="alert">{{msg}}</div> 
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

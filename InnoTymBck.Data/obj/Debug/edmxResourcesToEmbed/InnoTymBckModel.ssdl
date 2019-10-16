@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InnoTymModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="TransId" />
+    </Key>
+    <Property Name="TransId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RefId" Type="int" Nullable="false" />
+    <Property Name="TransType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="InisialAmount" Type="money" Nullable="false" />
+    <Property Name="TransAmount" Type="money" Nullable="false" />
+    <Property Name="TransDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" />
+    <Property Name="PasswordHash" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="ImageUrl" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+    <Property Name="IsAdmin" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Transacti__RefId__286302EC">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="RefId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transacti__UserI__276EDEB3">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="InnoTymModelStoreContainer">
+    <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Transacti__RefId__286302EC" Association="Self.FK__Transacti__RefId__286302EC">
+      <End Role="User" EntitySet="User" />
+      <End Role="Transaction" EntitySet="Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transacti__UserI__276EDEB3" Association="Self.FK__Transacti__UserI__276EDEB3">
+      <End Role="User" EntitySet="User" />
+      <End Role="Transaction" EntitySet="Transaction" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

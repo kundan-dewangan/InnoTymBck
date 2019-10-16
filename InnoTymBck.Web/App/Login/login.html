@@ -1,0 +1,33 @@
+﻿    <div class="container logintoppadding" data-ng-controller="loginController" data-ng-init="getUserList()">
+        <div class="row justify-content-lg-center">
+            <div class="col-lg-4 rounded bg-light">
+                <h1 class="text-center text-primary">Login Page</h1>
+                <hr />
+                <form class="px-4 py-3" name="loginform" role="form" novalidate>
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail1">Email Address</label>                        
+                        <div class="" ng-class="{'has-error':loginform.email.$invalid || loginform.email.$dirty || loginform.email.$error.email || loginform.email.$untouched }">
+                            <input type="email" class="form-control" name="email" data-ng-model="submitUser.emailId" id="exampleDropdownFormEmail1" placeholder="email@example.com" required>
+                        </div>
+                            <span class="help-block text-danger" ng-if="loginform.email.$error.required && loginform.email.$touched">*Email is required</span>
+                            <span class="help-block text-danger" ng-if="loginform.email.$error.email">*Invalid email address</span>
+                            <!--<span class="help-block text-danger" ng-if="loginform.email.$error.required && loginform.email.$touched">*email is required</span>-->
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleDropdownFormPassword1">Password</label>
+                        <div class="" ng-class="{'has-error':loginform.pass.$invalid && loginform.pass.$dirty}">
+                            <input type="password" class="form-control" name="pass" ng-model="submitUser.password" id="exampleDropdownFormPassword1" placeholder="Password" required>
+                        </div>
+                            <span class="help-block text-danger" ng-if="loginform.pass.$error.required && loginform.pass.$touched">*Password is required</span>                            
+                        </div>
+                    <div class="form-group d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary w-75 rounded" ng-click="login(submitUser)" ng-disabled="loginform.$pristine || loginform.$dirty && loginform.$invalid">Sign in</button>
+                    </div>
+                    <div class="alert alert-danger text-center h6" role="alert" ng-show="UserData">{{UserData}}</div>
+                    <div class="form-group pb-1">
+                        <div class="float-left">New around here? <a href="#!registration" style="text-decoration:none">Sign up</a></div>
+                    </div>
+                </form>
+                     </div>
+        </div>
+    </div>

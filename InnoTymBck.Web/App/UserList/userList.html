@@ -1,0 +1,24 @@
+﻿
+    <table class="table table-responsive-lg text-center table-hover" data-ng-controller="userListController" data-ng-init="getUserList()">
+
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">User Id</th>
+                <th scope="col">User Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="User in Users">
+                <th scope="row">{{User.Id}}</th>
+                <th scope="row">{{User.UName}}</th>
+                <td>{{User.Email}}</td>
+                <td>{{User.PhoneNumber}}</td>
+                <td>{{User.Gender}}</td>
+                <td>{{User.Amount}}</td>
+            </tr>
+        </tbody>
+    </table>

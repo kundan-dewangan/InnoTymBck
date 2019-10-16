@@ -1,0 +1,10 @@
+D:\Innotym Project\InnoTymBck\InnoTymBck\InnoTymBck.Data\bin\Debug\InnoTymBck.Data.dll.config
+D:\Innotym Project\InnoTymBck\InnoTymBck\InnoTymBck.Data\bin\Debug\InnoTymBck.Data.dll
+D:\Innotym Project\InnoTymBck\InnoTymBck\InnoTymBck.Data\bin\Debug\InnoTymBck.Data.pdb
+D:\Innotym Project\InnoTymBck\InnoTymBck\InnoTymBck.Data\bin\Debug\EntityFramework.dll
+D:\Innotym Project\InnoTymBck\InnoTymBck\InnoTymBck.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Innotym Project\InnoTymBck\InnoTymBck\InnoTymBck.Data\bin\Debug\EntityFramework.xml
+D:\Innotym Project\InnoTymBck\InnoTymBck\InnoTymBck.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Innotym Project\InnoTymBck\InnoTymBck\InnoTymBck.Data\obj\Debug\InnoTymBck.Data.dll
+D:\Innotym Project\InnoTymBck\InnoTymBck\InnoTymBck.Data\obj\Debug\InnoTymBck.Data.pdb
+D:\Innotym Project\InnoTymBck\InnoTymBck\InnoTymBck.Data\obj\Debug\InnoTymBck.Data.csprojResolveAssemblyReference.cache

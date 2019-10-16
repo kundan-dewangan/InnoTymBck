@@ -1,0 +1,68 @@
+﻿<div data-ng-controller="loginController" data-ng-init="createUser()">
+         <div class="container p-4">
+        <div class="row justify-content-lg-center">
+            <div class="col-lg-4 rounded bg-light">
+                <h1 class="text-center text-primary">Registration Page</h1>
+                <hr />
+
+                <form name="registrationform" role="form" novalidate>
+                   
+                        <div class="form-group">
+                            <label for="inputEmail4">User Name</label>
+                            <div data-ng-class="{'has-error':registrationform.username.$invalid && registrationform.username.$dirty}">
+                                <input type="text" class="form-control" name="username" id="inputEmail4" placeholder="Enter Your Name" data-ng-model="registrationDetails.UName" required>
+                           </div>
+                            <span class="help-block text-danger" ng-if="registrationform.username.$error.required && registrationform.username.$touched">*User name is required</span>                            
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail4">Email</label>
+                            <div ng-class="{'has-error':registrationform.email.$invalid && registrationform.email.$dirty}">
+                                <input type="email" class="form-control" name="email" id="inputEmail5" placeholder="Email Address" data-ng-model="registrationDetails.Email" required>
+                            </div>
+                            <span class="help-block text-danger" ng-if="registrationform.email.$error.required && registrationform.email.$touched">*Email is required</span>                               
+                            <span class="help-block text-danger" ng-if="registrationform.$error.email">*Invalid email address</span> 
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail4">Gender</label>
+                            <div ng-class="{'has-error':registrationform.gender.$invalid && registrationform.gender.$dirty}">
+                                <select class="form-control" name="gender" ng-model="registrationDetails.Gender" value="1" required>
+                                    <option value="" disabled selected>Select Your Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                </div>
+                            <span class="help-block text-danger" ng-if="registrationform.gender.$error.required && registrationform.gender.$touched">*Select gender</span>                               
+                            </div>
+                        <div class="form-group">
+                            <label for="inputEmail4">Phone Number</label>
+                            <div ng-class="{'has-error':registrationform.phonenumber.$invalid && registrationform.phonenumber.$dirty}">
+                                <input type="text" class="form-control" name="phonenumber" ng-pattern="/^[0-9]{10,10}$/" ng-minlength="10" ng-maxlength="10" id="inputEmail55" placeholder="Phone Number" data-ng-model="registrationDetails.PhoneNumber" required>
+                            </div>
+                            <span class="help-block text-danger d-flex" ng-if="registrationform.phonenumber.$error.required && registrationform.phonenumber.$touched">*Phone number is required</span>                                   
+                            <span class="help-block text-danger d-flex" ng-show="((registrationform.phonenumber.$error.minlength || registrationform.phonenumber.$error.maxlength) && registrationform.phonenumber.$dirty) ">*Phone number should be 10 digits</span>  
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail4">Password</label>
+                            <div ng-class="{'has-error':registrationform.password.$invalid && registrationform.password.$dirty}">
+                                <input type="password" class="form-control" name="password" id="inputEmail6" placeholder="Choose your password" data-ng-model="registrationDetails.PasswordHash" required>
+                            </div>
+                            <span class="help-block text-danger" ng-if="registrationform.password.$error.required && registrationform.password.$touched">*Password is required</span>                                      
+                         </div>
+                        <div class="form-group">
+                            <label for="inputEmail4">Amount</label>
+                            <div ng-class="{'has-error':registrationform.amount.$invalid && registrationform.amount.$dirty}">
+                                <input type="text" class="form-control" name="amount" ng-pattern="/^[0-9]{1,7}$/" step="0.01" id="inputEmail88" placeholder="Amount" data-ng-model="registrationDetails.Amount" required>
+                            </div>
+                            <span class="help-block text-danger" ng-if="registrationform.amount.$error.required && registrationform.amount.$touched">*Amount is required</span>                                      
+                            <span class="error" ng-if="registrationform.amount.$error.number">Not valid number!</span>
+                            <span class="help-block text-danger" ng-show="registrationform.amount.$invalid && registrationform.amount.$touched">*Only enter number between 0 to 9</span>
+                          </div>
+                    <button type="button" class="btn btn-primary" ng-disabled="registrationform.$pristine || registrationform.$dirty && registrationform.$invalid" ng-click="registration(registrationDetails)">Sign Up</button>
+                    <a href="#!login" class="btn btn-outline-light text-primary" style="text-decoration:none">Go Back</a>
+                    <div class="alert alert-success mt-3" role="alert" ng-show="success">{{success}}</div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿
+   
+
+ <table class="table table-responsive-lg text-center table-hover" data-ng-controller="transactionHistoryController" data-ng-init="getTransHistoryList()">
+        
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Transaction Id</th>
+                <th scope="col">User Name</th>
+                <th scope="col">Reference User</th>
+                <th scope="col">Initial Amount</th>               
+                <th scope="col">Transaction Amount</th>
+                <th scope="col">Transaction Type</th>
+                <th scope="col">Transaction Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="Trans in Transactions | orderBy:'-TransId'">
+                <th scope="row">{{Trans.TransId}}</th>
+                <td>{{Trans.NameRef}}</td>
+                <td>{{Trans.UName}}</td>
+                <td>{{Trans.InisialAmount| number:2}}</td>
+                <td>{{Trans.TransAmount| number:2}}</td>
+                <td>{{Trans.TransType}}</td>
+                <td>{{Trans.TransDate| date:"dd/MM/yyyy"}}</td>
+            </tr>
+        </tbody>
+    </table>
